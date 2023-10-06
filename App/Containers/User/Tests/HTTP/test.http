@@ -1,0 +1,41 @@
+// 🐘 composer run serve
+@protocol = http
+// Change here to match your server
+@hostname = localhost
+// Change here to match your server
+@port = 8088
+@host = {{protocol}}://{{hostname}}:{{port}}
+@pathAuth = {{host}}//api/auth
+
+################################################
+#                    Auth login                #
+################################################
+# @name login
+POST {{pathAuth}}/login HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{"username": "farums","password": "password"}
+
+################################################
+#                    Auth logout               #
+################################################
+POST {{pathAuth}}/logout HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+################################################
+#           Auth Register User Password        #
+################################################
+POST {{pathAuth}}/register HTTP/1.1
+Accept: application/json
+Accept-Language: ru
+Content-Type: application/json
+
+{
+   "login":"Elmut881",
+   "name":"Elmut881",
+   "email":"Elmut881@test.com",
+   "password":"Elmut12345",
+   "gender":"m"
+}

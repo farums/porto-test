@@ -1,0 +1,70 @@
+{
+    "name": "elmut/mezzio-porto",
+    "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "keywords": [
+        "ddd",
+        "cqrs",
+        "EventSourcing",
+        "eventsauce",
+        "service-bus",
+        "message-driven",
+        "hexagonal",
+        "event",
+        "messanger",
+        "event",
+        "projector"
+    ],
+    "require": {
+        "php": ">=8.1",
+        "eventsauce/eventsauce": "^3.4",
+        "eventsauce/message-repository-for-doctrine": "^1.1.0",
+        "eventsauce/message-repository-table-schema": "^1.0.0",
+        "wikimedia/composer-merge-plugin": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.3.5",
+        "symfony/var-dumper": "^v6.3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Porto\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Porto\\Tests\\": "Tests/",
+            "PHPUnit\\Metadata\\": "vendor/phpunit/phpunit/src/Metadata",
+            "PHPUnit\\Metadata\\Annotation\\Parser\\": "vendor/phpunit/phpunit/src/Metadata/Parser/Annotation"
+        }
+    },
+    "scripts": {
+        "serve": "php -S 0.0.0.0:8088 index.php",
+        "phpunit": "phpunit --colors=always"
+    },
+    "conflict": {},
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "wikimedia/composer-merge-plugin": true
+        }
+    },
+    "extra": {
+        "merge-plugin": {
+            "include": [
+                "../../Ship/composer.json"
+            ],
+            "merge-dev": false,
+            "recurse": false,
+            "replace": false,
+            "ignore-duplicates": false,
+            "merge-extra": false,
+            "merge-extra-deep": false,
+            "merge-scripts": false
+        }
+    }
+}
